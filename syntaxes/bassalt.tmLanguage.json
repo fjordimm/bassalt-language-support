@@ -15,15 +15,23 @@
 			"name": "source.bassalt",
 			"patterns":
 			[
+				{ "include": "#normal_tokens" },
+				
+				{ "include": "#labels" },
+				{ "include": "#types_variable_declaration" },
+				{ "include": "#functions" },
+				{ "include": "#variables" }
+			]
+		},
+		"normal_tokens":
+		{
+			"patterns":
+			[
 				{ "include": "#comments" },
-				{ "include": "#preprocessordirectives" },
+				{ "include": "#directives" },
 				{ "include": "#strings" },
 				{ "include": "#numbers" },
-				{ "include": "#keywords" },
-				{ "include": "#primitives" },
-				{ "include": "#labels" },
-				{ "include": "#types" },
-				{ "include": "#variables" }
+				{ "include": "#keywords" }
 			]
 		},
 
@@ -46,7 +54,7 @@
 				}
 			]
 		},
-		"preprocessordirectives":
+		"directives":
 		{
 			"patterns":
 			[
@@ -207,14 +215,9 @@
 					"name": "keyword.other.bassalt",
 					"match": "\\b(is|via|with|using|as)\\b"
 				},
-
 				{
 					"name": "keyword.operator.bassalt",
-					"match": "\\b(assert|throw|sizeof|typeof|bitcast|ref|new|rnew|snew|rrealloc|rfree|cede|copy|equals)\\b"
-				},
-				{
-					"name": "keyword.operator.bassalt",
-					"match": "\\b(sptr|wptr|gptr)\\b(?=\\s*\\()"
+					"match": "\\b(assert|throw|sizeof|typeof|bitcast|ref|new|rnew|snew|rrealloc|rfree|cede|clone|move|equals)\\b"
 				},
 
 				{
@@ -258,11 +261,6 @@
 				{
 					"name": "keyword.other.bassalt",
 					"match": "\\b(placeholder)\\b"
-				},
-
-				{
-					"name": "storage.type.builtin.bassalt",
-					"match": "\\b(void|func|sptr|wptr|gptr)\\b"
 				}
 			]
 		},
@@ -270,6 +268,11 @@
 		{
 			"patterns":
 			[
+				{
+					"name": "storage.type.builtin.bassalt",
+					"match": "\\b(void|func|sptr|wptr|gptr)\\b"
+				},
+
 				{
 					"name": "storage.type.primitive.bassalt",
 					"match": "\\b(void|bool|char|char8|char16|char32|sbyte|short|int|long|byte|ushort|uint|ulong|float|double)\\b"
@@ -300,35 +303,6 @@
 			]
 		},
 
-		"types":
-		{
-			"patterns":
-			[
-				{ "include": "#types_variable_declaration" }
-			]
-		},
-		"types_variable_declaration":
-		{
-			"patterns":
-			[
-				{
-					"begin": "(?=(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
-					"end": " (?=\\w+\\s*(\\;|\\=|\\+|\\-))",
-					"name": "meta.type.bassalt",
-					"patterns":
-					[
-						{ "include": "#comments" },
-						{ "include": "#preprocessordirectives" },
-						{ "include": "#strings" },
-						{ "include": "#numbers" },
-						{ "include": "#keywords" },
-						{ "include": "#primitives" },
-
-						{ "include": "#type_expr" }
-					]
-				}
-			]
-		},
 		"type_expr":
 		{
 			"patterns":
@@ -360,7 +334,58 @@
 				}
 			]
 		},
+		"types_variable_declaration":
+		{
+			"patterns":
+			[
+				{
+					"begin": "(?<=(^|\\-\\>|\\b(if|else|loop|while|do|for|in|switch|case)\\b)\\s*)(?=(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
+					"end": "(?=\\s+\\w+\\s*(\\;|\\=|\\+|\\-|\\(|\\bin\\b))",
+					"name": "meta.type.bassalt",
+					"patterns":
+					[
+						{ "include": "#normal_tokens" },
 
+						{ "include": "#type_expr" }
+					]
+				}
+			]
+		},
+		"types_template":
+		{
+			"patterns":
+			[
+				{
+					"begin": "(?<=\\b\\w+\\b\\s*)\\<(?=[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)",
+					"end": "\\>",
+					"patterns":
+					[
+						{ "include": "#normal_tokens" },
+
+						{
+							"name": "storage.type.bassalt",
+							"match": "\\b(type)\\b"
+						},
+						{
+							"name": "storage.type.bassalt",
+							"match": "\\b(portable|primitive)\\b"
+						},
+						{ "include": "#type_expr" }
+					]
+				}
+			]
+		},
+
+		"functions":
+		{
+			"patterns":
+			[
+				{
+					"name": "entity.name.function.bassalt",
+					"match": "\\b\\w+\\b(?=\\s*(\\<.*\\>)?\\s*\\(.*\\))"
+				}
+			]
+		},
 		"variables":
 		{
 			"patterns":
