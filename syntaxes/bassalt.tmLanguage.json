@@ -312,20 +312,52 @@
 			"patterns":
 			[
 				{
-					"match": "(\\b\\w+\\b)(?:\\<.*\\>)?((?:\\&|\\^|\\*|\\!|\\~\\b\\w+\\b)*)(\\[.*\\])?(?=\\s+\\b\\w+\\b)",
-					"captures":
-					{
-						"1": { "name": "entity.name.type.bassalt" },
-						"2": { "name": "storage.modifier.pointer.bassalt" },
-						"3": { "name": "storage.modifier.array.bassalt" }
-					}
+					"begin": "(?=(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
+					"end": " (?=\\w+\\s*(\\;|\\=|\\+|\\-))",
+					"name": "meta.type.bassalt",
+					"patterns":
+					[
+						{ "include": "#comments" },
+						{ "include": "#preprocessordirectives" },
+						{ "include": "#strings" },
+						{ "include": "#numbers" },
+						{ "include": "#keywords" },
+						{ "include": "#primitives" },
+
+						{ "include": "#type_expr" }
+					]
 				}
 			]
 		},
-		"types_generics":
+		"type_expr":
 		{
 			"patterns":
 			[
+				{
+					"begin": "(\\[)",
+					"end": "(\\])",
+					"captures":
+					{
+						"1": { "name": "storage.modifier.array" },
+						"2": { "name": "storage.modifier.array" }
+					},
+					"patterns":
+					[
+						{ "include": "#main" }
+					]
+				},
+				{
+					"name": "storage.modifier.pointer.bassalt",
+					"match": "[\\&\\^\\*]"
+				},
+				{
+					"name": "storage.modifier.face.bassalt",
+					"match": "\\!|\\~\\w+"
+				},
+				{
+					"name": "entity.name.type.bassalt",
+					"match": "\\w+"
+				}
 			]
 		},
 
