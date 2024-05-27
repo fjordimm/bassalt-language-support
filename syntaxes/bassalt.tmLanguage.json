@@ -22,7 +22,7 @@
 				{ "include": "#keywords" },
 				{ "include": "#primitives" },
 				{ "include": "#labels" },
-				{ "include": "#clienttypes" },
+				{ "include": "#types" },
 				{ "include": "#variables" }
 			]
 		},
@@ -300,27 +300,35 @@
 			]
 		},
 
-		"clienttype":
+		"types":
+		{
+			"patterns":
+			[
+				{ "include": "#types_variable_declaration" }
+			]
+		},
+		"types_variable_declaration":
 		{
 			"patterns":
 			[
 				{
-					"name": "entity.name.type",
-					"match": "\\b\\w+\\b"
+					"match": "(\\b\\w+\\b)(?:\\<.*\\>)?((?:\\&|\\^|\\*|\\!|\\~\\b\\w+\\b)*)(\\[.*\\])?(?=\\s+\\b\\w+\\b)",
+					"captures":
+					{
+						"1": { "name": "entity.name.type.bassalt" },
+						"2": { "name": "storage.modifier.pointer.bassalt" },
+						"3": { "name": "storage.modifier.array.bassalt" }
+					}
 				}
 			]
 		},
-		"clienttypes":
+		"types_generics":
 		{
 			"patterns":
 			[
-				{
-					"begin": ".(?=.*\\s+\\b\\w+\\b)",
-					"end": ".(?=\\s+\\b\\w+\\b)",
-					"name": "entity.name.type"
-				}
 			]
 		},
+
 		"variables":
 		{
 			"patterns":
