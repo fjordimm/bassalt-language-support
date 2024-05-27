@@ -1,0 +1,25 @@
+{
+  "name": "bassalt-language-support",
+  "displayName": "Bassalt Language Support",
+  "description": "Syntax highlighting for Bassalt",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "bassalt",
+      "aliases": ["Bassalt", "bassalt"],
+      "extensions": [".bslt"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "bassalt",
+      "scopeName": "source.bslt",
+      "path": "./syntaxes/bassalt.tmLanguage.json"
+    }]
+  }
+}
