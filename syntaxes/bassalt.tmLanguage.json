@@ -19,6 +19,8 @@
 				
 				{ "include": "#labels" },
 				{ "include": "#types_variable_declaration" },
+				{ "include": "#types_template" },
+				{ "include": "#primitives" },
 				{ "include": "#functions" },
 				{ "include": "#variables" }
 			]
@@ -339,8 +341,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\b(if|else|loop|while|do|for|in|switch|case)\\b)\\s*)(?=(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
-					"end": "(?=\\s+\\w+\\s*(\\;|\\=|\\+|\\-|\\(|\\bin\\b))",
+					"begin": "(?<=(^|\\-\\>|\\(|\\,|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
+					"end": "(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
