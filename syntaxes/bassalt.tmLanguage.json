@@ -12,12 +12,239 @@
 	{
 		"main":
 		{
-			"name": "source.basalt",
+			"name": "source.bassalt",
 			"patterns":
 			[
-				{ "include": "#comments" }
+				{ "include": "#comments" },
+				{ "include": "#preprocessordirectives" },
+				{ "include": "#strings" },
+				{ "include": "#numbers" },
+				{ "include": "#keywords" }
+			]
+		},
+
+		"comments":
+		{
+			"patterns":
+			[
+				{
+					"name": "comment.line.bassalt",
+					"match": "//.*"
+				},
+				{
+					"name": "comment.block.bassalt",
+					"begin": "/\\*",
+					"end": "\\*/"
+				},
+				{
+					"name": "invalid.bassalt",
+					"match": "^.*(?=\\/\\/\\s*Illegal)"
+				}
+			]
+		},
+		"preprocessordirectives":
+		{
+			"patterns":
+			[
+				{
+					"name": "meta.preprocessor.bassalt",
+					"match": "(?<=^\\s*)#.*#"
+				},
+				{
+					"name": "meta.type.annotation.bassalt",
+					"begin": "(?<=^\\s*)#\\[",
+					"end": "\\]#"
+				}
+			]
+		},
+		"strings":
+		{
+			"patterns":
+			[
+				{
+					"name": "string.quoted.double.bassalt",
+					"begin": "\"",
+					"end": "\"",
+					"patterns":
+					[
+						{
+							"name": "constant.character.escape.bassalt",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.bassalt",
+					"begin": "(r)\"",
+					"end": "\"",
+					"captures":
+					{
+						"1": { "name": "meta.encoding.bassalt" }
+					}
+				},
+				{
+					"name": "string.quoted.double.bassalt",
+					"begin": "(v)\"",
+					"end": "\"",
+					"captures":
+					{
+						"1": { "name": "meta.encoding.bassalt" }
+					}
+				},
+				{
+					"name": "string.quoted.double.bassalt",
+					"begin": "(?:(f)|\\$)\"",
+					"end": "\"",
+					"captures":
+					{
+						"1": { "name": "meta.encoding.bassalt" }
+					},
+					"patterns":
+					[
+						{
+							"name": "constant.character.escape.bassalt",
+							"match": "\\\\."
+						},
+						{
+							"name": "constant.character.escape.bassalt",
+							"match": "\\{\\{|\\}\\}"
+						},
+						{
+							"name": "meta.embedded",
+							"begin": "{",
+							"end": "}",
+							"patterns":
+							[
+								{
+									"include": "#main"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "constant.character.bassalt",
+					"begin": "'",
+					"end": "'(\\w+\\b)?",
+					"patterns":
+					[
+						{
+							"name": "constant.character.escape.bassalt",
+							"match": "\\\\."
+						}
+					],
+					"captures":
+					{
+						"1": { "name": "constant.suffix.bassalt" }
+					}
+				}
+			]
+		},
+		"numbers":
+		{
+			"patterns":
+			[
+				{
+					"match": "(?<=[a-zA-Z_]\\w*\\.([0-9]\\.)*)[0-9]+",
+					"name": "variable.other.basalt"
+				},
+
+				{
+					"name": "constant.numeric.hex.basalt",
+					"match": "(\\B-)?\\b0x\\h+(\\w+)?\\b",
+					"captures":
+					{
+						"2": { "name": "constant.suffix.basalt" }
+					}
+				},
+				{
+					"name": "constant.numeric.decimal.basalt",
+					"match": "(\\B-)?\\b\\d+(\\.\\d+)?(e|E)(\\+|\\-)?\\d+(\\w+)?\\b",
+					"captures":
+					{
+						"5": { "name": "constant.suffix.basalt" }
+					}
+				},
+				{
+					"name": "constant.numeric.decimal.basalt",
+					"match": "(\\B-)?\\b\\d+(\\.\\d+)?(\\w+)?\\b",
+					"captures":
+					{
+						"3": { "name": "constant.suffix.basalt" }
+					}
+				},
+				{
+					"name": "constant.numeric.octal.basalt",
+					"match": "(\\B-)?\\b0o[0-7]+(\\w+)?\\b",
+					"captures":
+					{
+						"2": { "name": "constant.suffix.basalt" }
+					}
+				},
+				{
+					"name": "constant.numeric.binary.basalt",
+					"match": "(\\B-)?\\b0b[01]+(\\w+)?\\b",
+					"captures":
+					{
+						"2": { "name": "constant.suffix.basalt" }
+					}
+				}
+			]
+		},
+		"keywords":
+		{
+			"patterns":
+			[
+				{
+					"name": "keyword.control.basalt",
+					"match": "\\b(if|else|loop|while|do|for|break|continue|in|switch|case|return)\\b"
+				},
+				{
+					"name": "keyword.other.basalt",
+					"match": "\\b(is|via|with|using|as)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.basalt",
+					"match": "\\b(assert|throw|sizeof|typeof|bitcast|ref|new|rnew|snew|rrealloc|rfree|cede|copy|equals)\\b"
+				},
+				{
+					"name": "support.function.builtin.basalt",
+					"match": "\\b(sptr|wptr|gptr)\\b(?=\\s*\\()"
+				},
+
+				{
+					"name": "storage.type.basalt",
+					"match": "\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b"
+				},
+				{
+					"name": "storage.modifier.basalt",
+					"match": "\\b(public|private|protected|portable|abstract|virtual|implement|override|operator|unsafe|extern|const)\\b"
+				},
+				{
+					"name": "storage.type.builtin.basalt",
+					"match": "\\b(void|func|sptr|wptr|gptr)\\b"
+				},
+
+				{
+					"name": "constant.language.basalt",
+					"match": "\\b(true|false|null)\\b"
+				},
+				{
+					"name": "variable.language.basalt",
+					"match": "\\b(this|base|stdout|stdin|stderr)\\b"
+				},
+
+				{
+					"name": "keyword.macro.c.basalt",
+					"match": "\\$(\\w+\\b|\\*)"
+				},
+				{
+					"name": "keyword.other.basalt",
+					"match": "\\b(placeholder)\\b"
+				}
 			]
 		}
 	},
-	"scopeName": "source.bslt"
+	"scopeName": "source.bassalt"
 }

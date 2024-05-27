@@ -35,7 +35,7 @@
 		[
 			{
 			"language": "bassalt",
-			"scopeName": "source.bslt",
+			"scopeName": "source.bassalt",
 			"path": "./syntaxes/bassalt.tmLanguage.json"
 			}
 		]
