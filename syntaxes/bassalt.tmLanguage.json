@@ -446,8 +446,8 @@
 
 						{ "include": "#types__templates" },
 						{
-							"begin": "(?<=\\b\\w+\\b\\s*(\\<.*\\>)?\\s*\\()",
-							"end": "(?=\\)\\s*(\\=|\\;|\\bas\\b))",
+							"begin": "(?<=\\b\\w+\\b\\s*(\\<.*\\>)?\\s*)\\(",
+							"end": "\\)(?=\\s*(\\=|\\;|\\bas\\b))",
 							"patterns":
 							[
 								{ "include": "#normal_tokens" },
