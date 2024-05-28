@@ -21,6 +21,7 @@
 				{ "include": "#types" },
 				{ "include": "#subordinate_keywords_sweep" },
 				{ "include": "#unit_headers" },
+				{ "include": "#usings" },
 				{ "include": "#namespace_resolution" },
 				{ "include": "#functions" },
 				{ "include": "#variables" }
@@ -319,8 +320,8 @@
 					"end": "(\\])",
 					"captures":
 					{
-						"1": { "name": "storage.modifier.array" },
-						"2": { "name": "storage.modifier.array" }
+						"1": { "name": "storage.modifier.array.bassalt" },
+						"2": { "name": "storage.modifier.array.bassalt" }
 					},
 					"patterns":
 					[
@@ -410,6 +411,24 @@
 		},
 
 		"unit_headers":
+		{
+			"patterns":
+			[
+				{
+					"name": "entity.name.type.bassalt",
+					"match": "(?<=\\b(interface|class|struct|enum)\\b\\s*)\\b\\w+\\b"
+				},
+				{
+					"name": "entity.name.section.bassalt",
+					"match": "(?<=\\b(module|program|singleton)\\b\\s*)\\b\\w+\\b"
+				},
+				{
+					"name": "entity.name.namespace.bassalt",
+					"match": "(?<=\\b(namespace)\\b\\s*)\\b\\w+\\b"
+				}
+			]
+		},
+		"usings":
 		{
 			"patterns":
 			[
