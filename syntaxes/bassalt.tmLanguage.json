@@ -18,9 +18,9 @@
 				{ "include": "#normal_tokens" },
 				
 				{ "include": "#labels" },
-				{ "include": "#types_variable_declaration" },
+				{ "include": "#types_var_or_func_declaration" },
 				{ "include": "#types_template" },
-				{ "include": "#primitives" },
+				{ "include": "#subordinate_keywords_sweep" },
 				{ "include": "#functions" },
 				{ "include": "#variables" }
 			]
@@ -266,21 +266,25 @@
 				}
 			]
 		},
-		"primitives":
+		"subordinate_keywords_sweep":
 		{
 			"patterns":
 			[
 				{
-					"name": "storage.type.builtin.bassalt",
-					"match": "\\b(void|func|sptr|wptr|gptr)\\b"
+					"name": "variable.language.bassalt",
+					"match": "\\b(void)\\b"
 				},
 
 				{
-					"name": "storage.type.primitive.bassalt",
-					"match": "\\b(void|bool|char|char8|char16|char32|sbyte|short|int|long|byte|ushort|uint|ulong|float|double)\\b"
+					"name": "keyword.bassalt",
+					"match": "\\b(func|sptr|wptr|gptr)\\b"
 				},
 				{
-					"name": "storage.type.reference.bassalt",
+					"name": "keyword.bassalt",
+					"match": "\\b(bool|char|char8|char16|char32|sbyte|short|int|long|byte|ushort|uint|ulong|float|double)\\b"
+				},
+				{
+					"name": "keyword.bassalt",
 					"match": "\\b(string|int128|uint128|int256|uint256|float128|rgba|datetime)\\b"
 				}
 			]
@@ -336,13 +340,13 @@
 				}
 			]
 		},
-		"types_variable_declaration":
+		"types_var_or_func_declaration":
 		{
 			"patterns":
 			[
 				{
 					"begin": "(?<=(^|\\-\\>|\\(|\\,|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
-					"end": "(?=\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\,|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
