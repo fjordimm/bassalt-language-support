@@ -357,8 +357,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
@@ -374,7 +374,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b(\\w+\\:\\:)*\\w+\\b\\s*)\\<(?=[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)",
+					"begin": "(?<=\\b(\\w+\\:\\:)*\\w+\\b\\s*)\\<(?=[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)",
 					"end": "\\>",
 					"name": "meta.type.bassalt",
 					"patterns":
@@ -399,7 +399,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b\\s+\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?\\s*\\:\\s*)(?!\\:)",
+					"begin": "(?<=\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b\\s+\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?\\s*\\:\\s*)(?!\\:)",
 					"end": "(?=\\{)",
 					"name": "meta.type.bassalt",
 					"patterns":
