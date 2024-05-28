@@ -138,7 +138,7 @@
 					]
 				},
 				{
-					"name": "constant.character.bassalt",
+					"name": "string.quoted.single.bassalt",
 					"begin": "'",
 					"end": "'(\\w+\\b)?",
 					"patterns":
