@@ -414,8 +414,16 @@
 			"patterns":
 			[
 				{
-					"name": "entity.name.scope-resolution.bassalt",
-					"match": "\\b\\w+\\b(?=\\:\\:\\b\\w+\\b)"
+					"name": "entity.name.type.bassalt",
+					"match": "(?<=\\b(interface|class|struct|enum)\\b\\s*)\\b\\w+\\b"
+				},
+				{
+					"name": "entity.name.section.bassalt",
+					"match": "(?<=\\b(module|program|singleton)\\b\\s*)\\b\\w+\\b"
+				},
+				{
+					"name": "entity.name.namespace.bassalt",
+					"match": "(?<=\\b(namespace)\\b\\s*)\\b\\w+\\b"
 				}
 			]
 		},
