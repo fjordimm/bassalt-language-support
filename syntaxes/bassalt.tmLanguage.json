@@ -344,7 +344,8 @@
 			"patterns":
 			[
 				{ "include": "#types__var_or_func_declaration" },
-				{ "include": "#types__templates" }
+				{ "include": "#types__templates" },
+				{ "include": "#types__unit_headers" }
 			]
 		},
 		"types__var_or_func_declaration":
@@ -352,8 +353,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=(\\w+(\\<[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*(\\w+(\\<[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=(\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*(\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
@@ -393,8 +394,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b\\s+\\w+(\\<\\>)?)",
-					"end": "",
+					"begin": "(?<=\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b\\s+\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?\\s*\\:\\s*)(?!\\:)",
+					"end": "(?=\\{)",
 					"patterns":
 					[
 						{ "include": "#normal_tokens" },
