@@ -18,8 +18,7 @@
 				{ "include": "#normal_tokens" },
 				
 				{ "include": "#labels" },
-				{ "include": "#types_var_or_func_declaration" },
-				{ "include": "#types_template" },
+				{ "include": "#types" },
 				{ "include": "#subordinate_keywords_sweep" },
 				{ "include": "#functions" },
 				{ "include": "#variables" }
@@ -340,13 +339,21 @@
 				}
 			]
 		},
-		"types_var_or_func_declaration":
+		"types":
+		{
+			"patterns":
+			[
+				{ "include": "#types__var_or_func_declaration" },
+				{ "include": "#types__templates" }
+			]
+		},
+		"types__var_or_func_declaration":
 		{
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\,|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\,|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*(\\w+(\\<.*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=(\\w+(\\<[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*(\\w+(\\<[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
@@ -357,7 +364,7 @@
 				}
 			]
 		},
-		"types_template":
+		"types__templates":
 		{
 			"patterns":
 			[
@@ -376,6 +383,22 @@
 							"name": "storage.type.bassalt",
 							"match": "\\b(portable|primitive)\\b"
 						},
+						{ "include": "#type_expr" }
+					]
+				}
+			]
+		},
+		"types__unit_headers":
+		{
+			"patterns":
+			[
+				{
+					"begin": "(?<=\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b\\s+\\w+(\\<\\>)?)",
+					"end": "",
+					"patterns":
+					[
+						{ "include": "#normal_tokens" },
+
 						{ "include": "#type_expr" }
 					]
 				}
