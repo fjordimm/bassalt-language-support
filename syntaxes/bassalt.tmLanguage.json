@@ -20,6 +20,8 @@
 				{ "include": "#labels" },
 				{ "include": "#types" },
 				{ "include": "#subordinate_keywords_sweep" },
+				{ "include": "#unit_headers" },
+				{ "include": "#namespace_resolution" },
 				{ "include": "#functions" },
 				{ "include": "#variables" }
 			]
@@ -331,8 +333,9 @@
 				},
 				{
 					"name": "storage.modifier.face.bassalt",
-					"match": "\\!|\\~\\w+"
+					"match": "\\!|\\~(\\w+\\:\\:)*\\w+"
 				},
+				{ "include": "#namespace_resolution" },
 				{
 					"name": "entity.name.type.bassalt",
 					"match": "\\w+"
@@ -353,8 +356,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=(\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*(\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
@@ -370,7 +373,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b\\w+\\b\\s*)\\<(?=[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)",
+					"begin": "(?<=\\b(\\w+\\:\\:)*\\w+\\b\\s*)\\<(?=[\\w\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,]*\\>)",
 					"end": "\\>",
 					"patterns":
 					[
@@ -406,6 +409,26 @@
 			]
 		},
 
+		"unit_headers":
+		{
+			"patterns":
+			[
+				{
+					"name": "entity.name.scope-resolution.bassalt",
+					"match": "\\b\\w+\\b(?=\\:\\:\\b\\w+\\b)"
+				}
+			]
+		},
+		"namespace_resolution":
+		{
+			"patterns":
+			[
+				{
+					"name": "entity.name.scope-resolution.bassalt",
+					"match": "\\b\\w+\\b(?=\\:\\:\\b\\w+\\b)"
+				}
+			]
+		},
 		"functions":
 		{
 			"patterns":
