@@ -320,12 +320,18 @@
 			"patterns":
 			[
 				{
-					"name": "entity.name.label.bassalt",
-					"match": "(?<=\\b(if|else|loop|while|do|for|switch|case)\\b\\s*)\\:\\w+"
+					"match": "(?<=\\b(?:if|else|loop|while|do|for|switch|case)\\b\\s*)\\:(\\w+)",
+					"captures":
+					{
+						"1": { "name": "entity.name.label.bassalt" }
+					}
 				},
 				{
-					"name": "entity.name.label.bassalt",
-					"match": "^\\s*\\:\\w+"
+					"match": "^\\s*\\:(\\w+)",
+					"captures":
+					{
+						"1": { "name": "entity.name.label.bassalt" }
+					}
 				},
 				{
 					"name": "entity.name.label.call.bassalt",
