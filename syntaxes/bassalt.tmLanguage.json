@@ -220,7 +220,7 @@
 					"match": "\\b(is|via|with|using|as)\\b"
 				},
 				{
-					"name": "keyword.operator.bassalt",
+					"name": "keyword.control.bassalt",
 					"match": "\\b(assert|throw|sizeof|typeof|bitcast|ref|new|rnew|snew|rrealloc|rfree|cede|clone|move|equals)\\b"
 				},
 
