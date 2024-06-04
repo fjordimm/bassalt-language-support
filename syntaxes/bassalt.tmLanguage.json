@@ -344,6 +344,18 @@
 			"patterns":
 			[
 				{
+					"begin": "\\{",
+					"end": "\\}",
+					"patterns":
+					[
+						{ "include": "#normal_tokens" },
+						{
+							"match": "\\w+",
+							"name": "entity.name.type.lifetime.bassalt"
+						}
+					]
+				},
+				{
 					"begin": "(\\[)",
 					"end": "(\\])",
 					"captures":
@@ -394,8 +406,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|abstract|virtual|unsafe|extern|const)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|abstract|virtual|unsafe|extern|const)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
@@ -411,7 +423,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b(\\w+\\:\\:)*\\w+\\b\\s*)\\<(?=[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)",
+					"begin": "(?<=\\b(\\w+\\:\\:)*\\w+\\b\\s*)\\<(?=[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)",
 					"end": "\\>",
 					"name": "meta.type.bassalt",
 					"patterns":
@@ -436,7 +448,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b\\s+\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?\\s*\\:\\s*)(?!\\:)",
+					"begin": "(?<=\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b\\s+\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?\\s*\\:\\s*)(?!\\:)",
 					"end": "(?=\\{)",
 					"name": "meta.type.bassalt",
 					"patterns":
@@ -453,7 +465,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b(inline)\\b\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s*(\\{|$))",
+					"begin": "(?<=\\b(inline)\\b\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s*(\\{|$))",
 					"end": "\\{",
 					"name": "meta.type.bassalt",
 					"patterns":
