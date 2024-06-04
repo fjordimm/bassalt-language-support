@@ -231,7 +231,7 @@
 				},
 				{
 					"name": "storage.modifier.bassalt",
-					"match": "\\b(public|private|protected|portable|abstract|virtual|implement|override|operator|unsafe|extern|const)\\b"
+					"match": "\\b(public|private|protected|passable|abstract|virtual|implement|override|operator|unsafe|extern|const)\\b"
 				},
 				{
 					"begin": "(?<=\\b(?:public|private|protected)\\b\\s*)(\\{)",
@@ -395,8 +395,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|portable|abstract|virtual|unsafe|extern|const)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|abstract|virtual|unsafe|extern|const)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|abstract|virtual|unsafe|extern|const)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|\\&|\\^|\\*|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
@@ -425,7 +425,7 @@
 						},
 						{
 							"name": "storage.type.bassalt",
-							"match": "\\b(portable|primitive)\\b"
+							"match": "\\b(passable|primitive)\\b"
 						},
 						{ "include": "#type_expr" }
 					]
