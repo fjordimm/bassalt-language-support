@@ -219,7 +219,7 @@
 				},
 				{
 					"name": "keyword.control.bassalt",
-					"match": "\\b(using|assert|throw|sizeof|typeof|ref|outref|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals)\\b"
+					"match": "\\b(using|assert|throw|sizeof|typeof|ref|iref|outref|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals)\\b"
 				},
 
 				{
@@ -408,8 +408,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner|ref|outref)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner|ref|outref)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner|ref|iref|outref)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner|ref|iref|outref)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
@@ -567,7 +567,7 @@
 			"patterns":
 			[
 				{
-					"match": "(?<=\\b(?:ref|outref|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+					"match": "(?<=\\b(?:ref|iref|outref|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
