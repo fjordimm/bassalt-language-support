@@ -219,7 +219,7 @@
 				},
 				{
 					"name": "keyword.control.bassalt",
-					"match": "\\b(using|assert|throw|sizeof|typeof|ref|inref|outref|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals)\\b"
+					"match": "\\b(using|assert|throw|sizeof|typeof|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals)\\b"
 				},
 
 				{
@@ -228,10 +228,10 @@
 				},
 				{
 					"name": "storage.modifier.bassalt",
-					"match": "\\b(public|private|protected|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner)\\b"
+					"match": "\\b(public|private|protected|ref|inref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner)\\b"
 				},
 				{
-					"begin": "(?<=\\b(?:public|private|protected)\\b\\s*)(\\{)",
+					"begin": "(?<=\\b(?:public|private|protected|ref|inref|outref)\\b\\s*)(\\{)",
 					"end": "(\\})",
 					"captures":
 					{
@@ -242,7 +242,7 @@
 					[
 						{
 							"name": "storage.modifier.bassalt",
-							"match": "\\b(get|set)\\b|,"
+							"match": "\\b(get|set|initialized|uninitialized)\\b|,"
 						}
 					]
 				},
@@ -408,8 +408,8 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner|ref|inref|outref)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
-					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner|ref|inref|outref)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
+					"begin": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected|ref|inref|outref)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|ref|inref|outref|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner)\\b)\\s*)(?=((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s+\\w+)",
+					"end": "(?<=(^|\\-\\>|\\(|\\{|\\,|\\b(public|private|protected|ref|inref|outref)\\b\\{.*\\}|\\b(if|else|loop|while|do|for|in|switch|case|public|private|protected|ref|inref|outref|passable|fixed|abstract|virtual|unsafe|extern|const|inline|owner)\\b)\\s*((\\w+\\:\\:)*\\w+(\\<[\\w0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
 					[
