@@ -351,6 +351,10 @@
 					[
 						{ "include": "#normal_tokens" },
 						{
+							"match": "\\b(initialized|uninitialized)\\b",
+							"name": "storage.modifier.bassalt"
+						},
+						{
 							"match": "\\w+",
 							"name": "entity.name.type.lifetime.bassalt"
 						}
