@@ -3,23 +3,21 @@
 	"displayName": "Bassalt Language Support",
 	"description": "Syntax highlighting for Bassalt",
 	"version": "0.0.1",
-	"engines":
-	{
+	"engines": {
 		"vscode": "^1.89.0"
 	},
-	"categories":
-	[
+	"categories": [
 		"Programming Languages"
 	],
-	"contributes":
-	{
-		"languages":
-		[
+	"contributes": {
+		"languages": [
 			{
 				"id": "bassalt",
-				"aliases": ["Bassalt", "bassalt"],
-				"extensions":
-				[
+				"aliases": [
+					"Bassalt",
+					"bassalt"
+				],
+				"extensions": [
 					".bslt",
 					".crgd",
 					".obel",
@@ -31,13 +29,15 @@
 				"configuration": "./language-configuration.json"
 			}
 		],
-		"grammars":
-		[
+		"grammars": [
 			{
-			"language": "bassalt",
-			"scopeName": "source.bassalt",
-			"path": "./syntaxes/bassalt.tmLanguage.json"
+				"language": "bassalt",
+				"scopeName": "source.bassalt",
+				"path": "./syntaxes/bassalt.tmLanguage.json"
 			}
 		]
+	},
+	"__metadata": {
+		"size": 177727
 	}
 }

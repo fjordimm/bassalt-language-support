@@ -301,7 +301,7 @@
 				},
 				{
 					"name": "storage.type.built-in.bassalt",
-					"match": "\\b(string|int128|uint128|int256|uint256|float128|rgba|datetime)\\b"
+					"match": "\\b(string|int128|uint128|int256|uint256|float128|float256|rgba|datetime)\\b"
 				}
 			]
 		},
@@ -578,6 +578,7 @@
 		{
 			"patterns":
 			[
+				{ "include": "#subordinate_keywords_sweep" },
 				{
 					"name": "entity.name.scope-resolution.bassalt",
 					"match": "\\b\\w+\\b(?=\\:\\:\\b\\w+\\b)"
