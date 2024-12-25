@@ -394,7 +394,7 @@
 					"match": "[\\&\\^\\*]"
 				},
 				{
-					"match": "(\\!)|(\\~)(\\w+\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+					"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
