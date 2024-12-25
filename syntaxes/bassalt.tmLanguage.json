@@ -394,19 +394,18 @@
 					"match": "[\\&\\^\\*]"
 				},
 				{
-					"match": "(\\!)|(\\~)(?:(\\w+)\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+					"match": "(\\!)|(\\~)(\\w+\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
 						"2": { "name": "storage.modifier.face.bassalt" },
-						"3": { "name": "entity.name.scope-resolution.bassalt" },
+						"3": { "name": "storage.modifier.face.bassalt" },
 						"4": { "name": "storage.modifier.bassalt" },
 						"5": { "name": "storage.modifier.face.bassalt" }
 					}
 				},
-				{ "include": "#namespace_resolution" },
-
 				{ "include": "#subordinate_keywords_sweep_types" },
+				{ "include": "#namespace_resolution" },
 				{
 					"name": "entity.name.type.bassalt",
 					"match": "\\w+"
@@ -576,14 +575,8 @@
 		},
 		"namespace_resolution":
 		{
-			"patterns":
-			[
-				{ "include": "#subordinate_keywords_sweep" },
-				{
-					"name": "entity.name.scope-resolution.bassalt",
-					"match": "\\b\\w+\\b(?=\\:\\:\\b\\w+\\b)"
-				}
-			]
+			"match": "(\\b\\w+\\b)(?=\\:\\:\\b\\w+\\b)",
+			"name": "entity.name.scope-resolution.bassalt"
 		},
 		"faces_after_variables":
 		{
