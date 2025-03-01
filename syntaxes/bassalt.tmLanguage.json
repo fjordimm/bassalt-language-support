@@ -240,6 +240,7 @@
 					},
 					"patterns":
 					[
+						{ "include": "#normal_tokens" },
 						{
 							"name": "storage.modifier.bassalt",
 							"match": "\\b(get|set|initialized|uninitialized)\\b|,"
