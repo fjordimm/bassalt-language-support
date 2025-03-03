@@ -27,6 +27,9 @@
 					".ciq"
 				],
 				"configuration": "./language-configuration.json"
+			},
+			{
+				"id": "bassalt-markdown-injection"
 			}
 		],
 		"grammars": [
@@ -34,6 +37,17 @@
 				"language": "bassalt",
 				"scopeName": "source.bassalt",
 				"path": "./syntaxes/bassalt.tmLanguage.json"
+			},
+			{
+				"language": "bassalt-markdown-injection",
+				"scopeName": "markdown.bassalt.codeblock",
+                "path": "./syntaxes/bassalt-markdown-injection.tmLanguage.json",
+                "injectTo": [
+                    "text.html.markdown"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.block.bassalt": "bassalt"
+                }
 			}
 		]
 	},
