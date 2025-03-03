@@ -240,10 +240,16 @@
 					},
 					"patterns":
 					[
-						{ "include": "#normal_tokens" },
 						{
-							"name": "storage.modifier.bassalt",
-							"match": "\\b(get|set|initialized|uninitialized)\\b|,"
+							"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+							"captures":
+							{
+								"1": { "name": "storage.modifier.face.bassalt" },
+								"2": { "name": "storage.modifier.face.bassalt" },
+								"3": { "name": "storage.modifier.face.bassalt" },
+								"4": { "name": "storage.modifier.bassalt" },
+								"5": { "name": "storage.modifier.face.bassalt" }
+							}
 						}
 					]
 				},
