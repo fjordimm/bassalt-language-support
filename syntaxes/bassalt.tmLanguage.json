@@ -23,7 +23,6 @@
 				{ "include": "#unit_headers" },
 				{ "include": "#usings" },
 				{ "include": "#namespace_resolution" },
-				{ "include": "#faces_after_variables" },
 				{ "include": "#faces_after_keywords" },
 				{ "include": "#functions" },
 				{ "include": "#variables" }
@@ -219,7 +218,7 @@
 				},
 				{
 					"name": "keyword.control.bassalt",
-					"match": "\\b(using|as|assert|throw|sizeof|typeof|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals|bitcast)\\b"
+					"match": "\\b(using|as|assert|throw|sizeof|typeof|new|rnew|onew|snew|gnew|rrealloc|rfree|cede|move|equals|bitcast)\\b"
 				},
 
 				{
@@ -228,7 +227,7 @@
 				},
 				{
 					"name": "storage.modifier.bassalt",
-					"match": "\\b(public|private|protected|ref|inref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner|named)\\b"
+					"match": "\\b(public|private|protected|ref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner|named)\\b"
 				},
 				{
 					"begin": "(?<=\\b(?:public|private|protected)\\b\\s*)(\\{)",
@@ -254,7 +253,7 @@
 					]
 				},
 				{
-					"begin": "(?<=\\b(?:ref|inref|outref)\\b\\s*)(\\{)",
+					"begin": "(?<=\\b(?:ref|outref)\\b\\s*)(\\{)",
 					"end": "(\\})",
 					"captures":
 					{
@@ -450,7 +449,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?=(([\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\|\\?)*((\\w+\\:\\:)*\\w+(\\<[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)\\?*(\\|[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*)*\\s+\\w+)(?!(([\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\|\\?)*((\\w+\\:\\:)*\\w+(\\<[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)\\?*(\\|[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*)*\\s+\\b(in|as|equals|ref|inref|outref)\\b)",
+					"begin": "(?=(([\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\|\\?)*((\\w+\\:\\:)*\\w+(\\<[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)\\?*(\\|[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*)*\\s+\\w+)(?!(([\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\|\\?)*((\\w+\\:\\:)*\\w+(\\<[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*)\\?*(\\|[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*)*\\s+\\b(in|as|equals|ref|outref)\\b)",
 					"end": "(?<=((\\w+\\:\\:)*\\w+(\\<[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\?*)(?=\\s+\\w+)",
 					"name": "meta.type.bassalt",
 					"patterns":
@@ -528,7 +527,7 @@
 			"patterns":
 			[
 				{
-					"begin": "(?<=\\b(new|rnew|onew|snew|jnew)\\b\\s+)(?=((\\w+\\:\\:)*\\w+(\\<[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s*([\\(\\{]))",
+					"begin": "(?<=\\b(new|rnew|onew|snew|gnew)\\b\\s+)(?=((\\w+\\:\\:)*\\w+(\\<[\\w_0-9\\s\\(\\)\\<\\>\\[\\]\\{\\}\\&\\^\\*\\!\\~\\,\\:\\|\\?]*\\>)?|\\(.*\\))(\\[.*\\]|(\\&|\\^|\\*)(\\{[\\w\\s\\,\\:\\.]*\\})?|\\!|\\~(\\w+\\:\\:)*\\w+)*\\s*([\\(\\{]))",
 					"end": "[\\(\\{]",
 					"name": "meta.type.bassalt",
 					"patterns":
@@ -601,29 +600,12 @@
 			"match": "(\\b\\w+\\b)(?=\\:\\:\\b\\w+\\b)",
 			"name": "entity.name.scope-resolution.bassalt"
 		},
-		"faces_after_variables":
-		{
-			"patterns":
-			[
-				{
-					"match": "(?<=(?:\\b\\w+\\b|\\)|\\]))(?:(\\!)|(\\~)(?:(\\w+)\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+)))",
-					"captures":
-					{
-						"1": { "name": "storage.modifier.face.bassalt" },
-						"2": { "name": "storage.modifier.face.bassalt" },
-						"3": { "name": "entity.name.scope-resolution.bassalt" },
-						"4": { "name": "storage.modifier.bassalt" },
-						"5": { "name": "storage.modifier.face.bassalt" }
-					}
-				}
-			]
-		},
 		"faces_after_keywords":
 		{
 			"patterns":
 			[
 				{
-					"match": "(?<=\\b(?:ref|inref|outref|new|rnew|onew|snew|jnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+					"match": "(?<=\\&|\\b(?:ref|outref|new|rnew|onew|snew|gnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
