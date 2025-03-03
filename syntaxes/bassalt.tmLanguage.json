@@ -231,7 +231,7 @@
 					"match": "\\b(public|private|protected|ref|inref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner|named)\\b"
 				},
 				{
-					"begin": "(?<=\\b(?:public|private|protected|ref|inref|outref)\\b\\s*)(\\{)",
+					"begin": "(?<=\\b(?:public|private|protected)\\b\\s*)(\\{)",
 					"end": "(\\})",
 					"captures":
 					{
@@ -250,6 +250,22 @@
 								"4": { "name": "storage.modifier.bassalt" },
 								"5": { "name": "storage.modifier.face.bassalt" }
 							}
+						}
+					]
+				},
+				{
+					"begin": "(?<=\\b(?:ref|inref|outref)\\b\\s*)(\\{)",
+					"end": "(\\})",
+					"captures":
+					{
+						"1": { "name": "storage.modifier.bassalt" },
+						"2": { "name": "storage.modifier.bassalt" }
+					},
+					"patterns":
+					[
+						{
+							"name": "storage.modifier.bassalt",
+							"match": "\\b(initialized|uninitialized)\\b|,"
 						}
 					]
 				},
