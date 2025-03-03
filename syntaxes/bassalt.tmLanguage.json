@@ -624,7 +624,11 @@
 			[
 				{
 					"name": "entity.name.function.bassalt",
-					"match": "\\b\\w+\\b(?=(\\<.*\\>)?\\()"
+					"match": "\\b\\w+\\b(?=(?:\\<.*\\>)?(\\!)?\\()",
+					"captures":
+					{
+						"1": { "name": "storage.modifier.face.bassalt" }
+					}
 				}
 			]
 		},
