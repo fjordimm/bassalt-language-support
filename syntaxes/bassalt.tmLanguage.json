@@ -240,7 +240,7 @@
 					"patterns":
 					[
 						{
-							"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+							"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected|initialized|uninitialized)\\b)|(\\w+))",
 							"captures":
 							{
 								"1": { "name": "storage.modifier.face.bassalt" },
@@ -416,7 +416,7 @@
 					"match": "[\\&\\^\\*]"
 				},
 				{
-					"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+					"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected|initialized|uninitialized)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
@@ -605,7 +605,7 @@
 			"patterns":
 			[
 				{
-					"match": "(?<=\\&|\\b(?:ref|outref|new|rnew|onew|snew|gnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected)\\b)|(\\w+))",
+					"match": "(?<=\\&|\\b(?:ref|outref|new|rnew|onew|snew|gnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected|initialized|uninitialized)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
