@@ -227,7 +227,7 @@
 				},
 				{
 					"name": "storage.modifier.bassalt",
-					"match": "\\b(public|private|protected|ref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner|named)\\b"
+					"match": "\\b(public|private|protected|ref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner|named|outparam)\\b"
 				},
 				{
 					"begin": "(?<=\\b(?:public|private|protected)\\b\\s*)(\\{)",
@@ -240,7 +240,7 @@
 					"patterns":
 					[
 						{
-							"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected|initialized|uninitialized)\\b)|(\\w+))",
+							"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected|initd|uninitd|outpar)\\b)|(\\w+))",
 							"captures":
 							{
 								"1": { "name": "storage.modifier.face.bassalt" },
@@ -264,7 +264,7 @@
 					[
 						{
 							"name": "storage.modifier.bassalt",
-							"match": "\\b(initialized|uninitialized)\\b|,"
+							"match": "\\b(initd|uninitd|outpar)\\b|,"
 						}
 					]
 				},
@@ -291,7 +291,7 @@
 				},
 				{
 					"name": "variable.language.bassalt",
-					"match": "\\b(this|base|stdout|stdin|stderr)\\b"
+					"match": "\\b(_|this|base|stdout|stdin|stderr)\\b"
 				},
 
 				{
@@ -389,7 +389,7 @@
 					[
 						{ "include": "#normal_tokens" },
 						{
-							"match": "\\b(initialized|uninitialized)\\b",
+							"match": "\\b(initd|uninitd|outpar)\\b",
 							"name": "storage.modifier.bassalt"
 						},
 						{
@@ -416,7 +416,7 @@
 					"match": "[\\&\\^\\*]"
 				},
 				{
-					"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected|initialized|uninitialized)\\b)|(\\w+))",
+					"match": "(\\!)|(\\~)((?:\\w+\\:\\:)*)(?:(\\b(?:private|public|protected|initd|uninitd|outpar)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
@@ -605,7 +605,7 @@
 			"patterns":
 			[
 				{
-					"match": "(?<=\\&|\\b(?:ref|outref|new|rnew|onew|snew|gnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected|initialized|uninitialized)\\b)|(\\w+))",
+					"match": "(?<=\\&|\\b(?:ref|outref|new|rnew|onew|snew|gnew|rrealloc|rfree|cede|move|equals)\\b)(\\!)|(\\~)(?:\\w+\\:\\:)*(?:(\\b(?:private|public|protected|initd|uninitd|outpar)\\b)|(\\w+))",
 					"captures":
 					{
 						"1": { "name": "storage.modifier.face.bassalt" },
