@@ -168,7 +168,7 @@
 
 				{
 					"name": "constant.numeric.hex.bassalt",
-					"match": "(\\B-)?\\b0x\\h+(\\w+)?\\b",
+					"match": "\\b0x\\h+(\\w+)?\\b",
 					"captures":
 					{
 						"2": { "name": "constant.suffix.bassalt" }
@@ -176,7 +176,7 @@
 				},
 				{
 					"name": "constant.numeric.decimal.bassalt",
-					"match": "(\\B-)?\\b\\d+(\\.\\d+)?(e|E)(\\+|\\-)?\\d+(\\w+)?\\b",
+					"match": "\\b\\d+(\\.\\d+)?(e|E)(\\+|\\-)?\\d+(\\w+)?\\b",
 					"captures":
 					{
 						"5": { "name": "constant.suffix.bassalt" }
@@ -184,7 +184,7 @@
 				},
 				{
 					"name": "constant.numeric.decimal.bassalt",
-					"match": "(\\B-)?\\b\\d+(\\.\\d+)?(\\w+)?\\b",
+					"match": "\\b\\d+(\\.\\d+)?(\\w+)?\\b",
 					"captures":
 					{
 						"3": { "name": "constant.suffix.bassalt" }
@@ -192,7 +192,7 @@
 				},
 				{
 					"name": "constant.numeric.octal.bassalt",
-					"match": "(\\B-)?\\b0o[0-7]+(\\w+)?\\b",
+					"match": "\\b0o[0-7]+(\\w+)?\\b",
 					"captures":
 					{
 						"2": { "name": "constant.suffix.bassalt" }
@@ -200,7 +200,7 @@
 				},
 				{
 					"name": "constant.numeric.binary.bassalt",
-					"match": "(\\B-)?\\b0b[01]+(\\w+)?\\b",
+					"match": "\\b0b[01]+(\\w+)?\\b",
 					"captures":
 					{
 						"2": { "name": "constant.suffix.bassalt" }
