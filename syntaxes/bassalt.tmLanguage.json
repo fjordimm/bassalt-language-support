@@ -16,7 +16,6 @@
 			"patterns":
 			[
 				{ "include": "#normal_tokens" },
-				
 				{ "include": "#labels" },
 				{ "include": "#types" },
 				{ "include": "#subordinate_keywords_sweep" },
@@ -28,6 +27,7 @@
 				{ "include": "#variables" }
 			]
 		},
+
 		"normal_tokens":
 		{
 			"patterns":
@@ -59,6 +59,7 @@
 				}
 			]
 		},
+
 		"directives":
 		{
 			"patterns":
@@ -74,6 +75,7 @@
 				}
 			]
 		},
+
 		"strings":
 		{
 			"patterns":
@@ -157,6 +159,7 @@
 				}
 			]
 		},
+
 		"numbers":
 		{
 			"patterns":
@@ -208,6 +211,7 @@
 				}
 			]
 		},
+
 		"keywords":
 		{
 			"patterns":
@@ -220,30 +224,13 @@
 					"name": "keyword.control.bassalt",
 					"match": "\\b(using|as|assert|throw|sizeof|typeof|new|rnew|onew|snew|gnew|rrealloc|rfree|cede|move|equals|bitcast)\\b"
 				},
-
 				{
 					"name": "storage.type.bassalt",
 					"match": "\\b(module|interface|class|struct|enum|face|program|namespace|singleton)\\b"
 				},
 				{
 					"name": "storage.modifier.bassalt",
-					"match": "\\b(public|private|protected|ref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner|named|outparam)\\b"
-				},
-				{
-					"begin": "(?<=\\b(?:ref|outref)\\b\\s*)(\\{)",
-					"end": "(\\})",
-					"captures":
-					{
-						"1": { "name": "storage.modifier.bassalt" },
-						"2": { "name": "storage.modifier.bassalt" }
-					},
-					"patterns":
-					[
-						{
-							"name": "storage.modifier.bassalt",
-							"match": "\\b(initd|uninitd|outpar)\\b|,"
-						}
-					]
+					"match": "\\b(public|private|protected|ref|outref|passable|fixed|abstract|virtual|implement|override|operator|unsafe|extern|const|inline|owner|named)\\b"
 				},
 				{
 					"begin": "(?<=\\b(?:unsafe)\\b\\s*)(\\{)",
@@ -261,7 +248,6 @@
 						}
 					]
 				},
-
 				{
 					"name": "constant.language.bassalt",
 					"match": "\\b(true|false|null)\\b"
@@ -270,7 +256,6 @@
 					"name": "variable.language.bassalt",
 					"match": "\\b(_|this|base|stdout|stdin|stderr)\\b"
 				},
-
 				{
 					"name": "keyword.macro.c.bassalt",
 					"match": "\\$(\\w+\\b|\\*)"
@@ -281,6 +266,7 @@
 				}
 			]
 		},
+
 		"subordinate_keywords_sweep_types":
 		{
 			"patterns":
@@ -289,7 +275,6 @@
 					"name": "storage.type.built-in.bassalt",
 					"match": "\\b(void)\\b"
 				},
-
 				{
 					"name": "storage.type.built-in.bassalt",
 					"match": "\\b(func|optr|woptr|sptr|wsptr|jptr|wjptr|gptr)\\b"
@@ -304,6 +289,7 @@
 				}
 			]
 		},
+
 		"subordinate_keywords_sweep":
 		{
 			"patterns":
@@ -312,7 +298,6 @@
 					"name": "variable.language.bassalt",
 					"match": "\\b(void)\\b"
 				},
-
 				{
 					"name": "keyword.bassalt",
 					"match": "\\b(func|optr|woptr|sptr|wsptr|jptr|wjptr|gptr)\\b"
@@ -411,6 +396,7 @@
 				}
 			]
 		},
+
 		"types":
 		{
 			"patterns":
@@ -421,6 +407,7 @@
 				{ "include": "#types__new_keyword" }
 			]
 		},
+
 		"types__var_or_func_declaration":
 		{
 			"patterns":
@@ -438,6 +425,7 @@
 				}
 			]
 		},
+
 		"types__templates":
 		{
 			"patterns":
@@ -482,6 +470,7 @@
 				}
 			]
 		},
+
 		"types__unit_headers":
 		{
 			"patterns":
@@ -499,6 +488,7 @@
 				}
 			]
 		},
+
 		"types__new_keyword":
 		{
 			"patterns":
@@ -539,6 +529,7 @@
 				}
 			]
 		},
+
 		"usings":
 		{
 			"patterns":
@@ -572,11 +563,13 @@
 				}
 			]
 		},
+
 		"namespace_resolution":
 		{
 			"match": "(\\b\\w+\\b)(?=\\:\\:\\b\\w+\\b)",
 			"name": "entity.name.scope-resolution.bassalt"
 		},
+
 		"faces_after_keywords":
 		{
 			"patterns":
@@ -593,6 +586,7 @@
 				}
 			]
 		},
+
 		"functions":
 		{
 			"patterns":
@@ -607,6 +601,7 @@
 				}
 			]
 		},
+		
 		"variables":
 		{
 			"patterns":
