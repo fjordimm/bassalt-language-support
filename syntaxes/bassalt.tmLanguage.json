@@ -254,7 +254,7 @@
 				},
 				{
 					"name": "variable.language.bassalt",
-					"match": "\\b(_|this|base|stdout|stdin|stderr)\\b"
+					"match": "\\b(_|this|super|stdout|stdin|stderr)\\b"
 				},
 				{
 					"name": "keyword.macro.c.bassalt",
